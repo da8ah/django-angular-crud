@@ -1,0 +1,10 @@
+.vscode/
+/node_modules
+/e2e
+/docs
+.git/
+.gitignore
+.editorconfig
+*.zip
+*.md
+LICENSE
