@@ -1,0 +1,30 @@
+###
+@port = 8000
+@api = http://localhost:{{port}}
+
+### CREATE
+POST {{api}}/create
+Content-Type: application/json
+
+{
+    "user": "tiber",
+    "name": "da8ah",
+    "email": "tiber@email.com",
+    "mobile": "+593000000001",
+    "password": "tiber"
+}
+
+### READ
+GET {{api}}/read
+
+### UPDATE
+PUT {{api}}/update
+Content-Type: application/json
+
+{
+    "user": "tiber",
+    "name": "da8ah"    
+}
+
+### DELETE
+DELETE {{api}}/read
