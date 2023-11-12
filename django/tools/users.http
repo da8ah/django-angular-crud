@@ -3,7 +3,7 @@
 @api = http://localhost:{{port}}
 
 ### CREATE
-POST {{api}}/create
+POST {{api}}/create/
 Content-Type: application/json
 
 {
@@ -11,14 +11,13 @@ Content-Type: application/json
     "name": "da8ah",
     "email": "tiber@email.com",
     "mobile": "+593000000001",
-    "password": "tiber"
 }
 
 ### READ
-GET {{api}}/read
+GET {{api}}/read/
 
 ### UPDATE
-PUT {{api}}/update
+PUT {{api}}/update/
 Content-Type: application/json
 
 {
@@ -27,4 +26,4 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE {{api}}/read
+DELETE {{api}}/delete/
