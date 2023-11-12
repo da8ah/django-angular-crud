@@ -59,51 +59,6 @@ main {
     width: 30%;
 }
 
-.form-field {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    padding: 1%;
-}
-
-.form-field label {
-    width: 15%;
-    margin-right: 5%;
-    text-transform: capitalize;
-}
-
-.form-field input {
-    width: 80%;
-    padding: 2%;
-    border-width: 1px;
-    border-radius: 5px;
-    border-color: var(--orange-red);
-}
-
-.form-field input:focus {
-    outline: none;
-    box-shadow: 0 0 5px 1px var(--orange-red);
-}
-
-.form-button {
-    width: 100%;
-    background-color: var(--hot-red);
-    color: white;
-    padding: 2% 0;
-    border: 1px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: medium;
-}
-
-.form-button:hover {
-    background-color: var(--hot-red);
-    opacity: .9;
-    cursor: pointer;
-}
-
 .divider {
     width: 1px;
     background: var(--red-to-pink-to-purple-vertical-gradient);

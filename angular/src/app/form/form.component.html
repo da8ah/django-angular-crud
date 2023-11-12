@@ -1,0 +1,13 @@
+<form #userForm="ngForm" method="post">
+    @for (item of [
+    { title: 'user', id: 'form-user'},
+    { title: 'name', id: 'form-name'},
+    { title: 'email', id: 'form-email'},
+    { title: 'mobile', id: 'form-mobile'},
+    ]; track item.title) {
+    <div class="form-field">
+        <label for={{item.id}}>{{item.title}}</label><input type="text" id={{item.id}} name={{item.title}} ngModel><br>
+    </div>
+    }
+    <button class="form-button" type="submit" (click)="onSubmit(userForm)">Registrar</button>
+</form>

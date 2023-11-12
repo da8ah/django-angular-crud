@@ -35,19 +35,7 @@
   </svg>
   <section class="content">
     <div class="left-side">
-      <form #userForm="ngForm" method="post" action="#">
-        @for (item of [
-        { title: 'User', id: 'form-user'},
-        { title: 'Name', id: 'form-name'},
-        { title: 'Email', id: 'form-email'},
-        { title: 'Mobile', id: 'form-mobile'},
-        ]; track item.title) {
-        <div class="form-field">
-          <label for={{item.id}}>{{item.title}}</label><input type="text" id={{item.id}} name={{item.id}}><br>
-        </div>
-        }
-        <button class="form-button" type="submit" (click)="onSubmit(userForm)">Registrar</button>
-      </form>
+      <app-form></app-form>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
