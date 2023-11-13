@@ -1,3 +1,10 @@
+.user-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .form-field {
     display: flex;
     align-items: center;
@@ -29,6 +36,7 @@
     width: 100%;
     background-color: var(--hot-red);
     color: white;
+    margin: 30px 0;
     padding: 2% 0;
     border: 1px;
     border-radius: 10px;

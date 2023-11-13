@@ -1,0 +1,32 @@
+<table>
+    <tr>
+        @for (key of keys; track key) {
+        <th>{{key}}</th>
+        }
+        <th>Action</th>
+    </tr>
+    @for (item of data.values(); track item) {
+    <tr>
+        <td>
+            {{item.id}}
+        </td>
+        <td>
+            {{item.user}}
+        </td>
+        <td>
+            {{item.name}}
+        </td>
+        <td>
+            {{item.email}}
+        </td>
+        <td>
+            {{item.mobile}}
+        </td>
+        <td class="action-buttons">
+            <button type="button" class="update-button" (click)="onUpdate(item.id)">Update</button>
+            <button type="button" class="delete-button" (click)="onDelete(item.id)">Delete</button>
+        </td>
+    </tr>
+    }
+    <button type="button" (click)="onRead()">Recargar</button>
+</table>

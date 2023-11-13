@@ -1,0 +1,61 @@
+:host {
+    --bright-blue: oklch(51.01% 0.274 263.83);
+    --electric-violet: oklch(53.18% 0.28 296.97);
+    --french-violet: oklch(47.66% 0.246 305.88);
+    --vivid-pink: oklch(69.02% 0.277 332.77);
+    --hot-red: oklch(61.42% 0.238 15.34);
+    --orange-red: oklch(63.32% 0.24 31.68);
+
+    --red-to-pink-to-purple-vertical-gradient: linear-gradient(180deg,
+            var(--orange-red) 0%,
+            var(--vivid-pink) 50%,
+            var(--electric-violet) 100%);
+
+    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(90deg,
+            var(--orange-red) 0%,
+            var(--vivid-pink) 50%,
+            var(--electric-violet) 100%);
+}
+
+table {
+    width: 100%;
+}
+
+table th {
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+}
+
+table td {
+    text-align: center;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.update-button,
+.delete-button {
+    border: 0;
+    outline: 0;
+    padding: 2% 15px;
+    color: white;
+    font-weight: bolder;
+}
+
+.update-button {
+    background-color: royalblue;
+}
+
+.delete-button {
+    background-color: crimson;
+}
+
+.update-button:hover,
+.delete-button:hover {
+    cursor: pointer;
+    opacity: .7;
+}

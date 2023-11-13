@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormComponent } from "./form/form.component";
+import { TableComponent } from "./table/table.component";
 
 
 @Component({
@@ -9,6 +10,6 @@ import { FormComponent } from "./form/form.component";
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [CommonModule, RouterOutlet, FormComponent]
+  imports: [CommonModule, RouterOutlet, FormComponent, TableComponent]
 })
 export class AppComponent { }
