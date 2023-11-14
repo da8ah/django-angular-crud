@@ -12,13 +12,7 @@ import { User } from '../types/user';
 })
 export class FormComponent {
   @Input() user_id = -1
-  @Input() user: User = {
-    id: -1,
-    user: '',
-    name: '',
-    email: '',
-    mobile: ''
-  }
+  @Input() user: User = { id: -1, user: '', name: '', email: '', mobile: '' }
   @Output() creator = new EventEmitter<User>()
   @Output() updater = new EventEmitter<User>()
   @Output() reseter = new EventEmitter<number>()

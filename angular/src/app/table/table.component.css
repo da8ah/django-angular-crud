@@ -17,6 +17,21 @@
             var(--electric-violet) 100%);
 }
 
+.search-bar {
+    width: 30%;
+    padding: 1% 2%;
+    margin-bottom: 20px;
+    border-width: 0px 0px 1px 0px;
+    border-color: black;
+    background-color: white;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: var(--french-violet);
+    box-shadow: 0 0 5px 1px var(--french-violet);
+}
+
 table {
     width: 100%;
 }

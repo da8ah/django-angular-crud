@@ -49,7 +49,7 @@ export class AppComponent {
   setupUpdate(id: number) {
     if (id === -1) this.resetUser()
     this.user_id = id
-    this.user = this.data.find(item => item.id === id) || {
+    this.user = Object.assign({}, this.data.find(item => item.id === id)) || {
       id: -1,
       user: '',
       name: '',
@@ -59,7 +59,7 @@ export class AppComponent {
   }
 
   onUpdate(user: User) {
-    this.service.update(user, user.id).subscribe((res) => { console.log(res); res.ok && this.resetUser() })
+    this.service.update(user, user.id).subscribe((res) => { console.log(res); res.ok && this.service.read() })
   }
 
   onDelete(id: number) {

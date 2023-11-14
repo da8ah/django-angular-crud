@@ -1,11 +1,15 @@
+<input type="search" class="search-bar" (input)="onSearch($event)" (focus)="onSearch($event)" placeholder="User" />
 <table>
     <tr>
         @for (key of keys; track key) {
-        <th>{{key}}</th>
+        <th>
+            {{key}}
+            @if(key === 'user'){<button type="button" (click)="order()">*</button>}
+        </th>
         }
         <th>Action</th>
     </tr>
-    @for (item of data; track data) {
+    @for (item of table; track table) {
     <tr>
         <td>
             {{item.id}}
