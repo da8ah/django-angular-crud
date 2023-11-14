@@ -1,6 +1,9 @@
 # django-angular-crud
 
-## Django Backend: Docker Setup (Ubuntu)
+<br/>
+<br/>
+
+## Django Backend: Docker setup (Ubuntu)
 
 1. Install Docker.
 2. Start the Docker service:
@@ -25,12 +28,20 @@
 
    ```bash
    sudo docker run -p 8000:8000 da8ah/django-angular-crud
+   ```
+
+   ```bash
    sudo docker run -d -v ~/programming/django-angular-crud/django/:/app -p 8000:8000 da8ah/django-angular-crud
    ```
 
 6. Test if it's running; it should return an array from the database:
 
    [http://localhost:8000/read/](http://localhost:8000/read/)
+
+<br/>
+<div align="center">
+<img style="width:70%" src="./doc/django.png" >
+</div>
 
 
 ### Build
@@ -45,7 +56,7 @@ sudo docker build -t <tag-name> <dockerfile-dir>
 ### Run
 
 ```bash
-sudo docker run -d -v ~/<project-dir>/:/app -p <host-port>:<container-port> <tag-name>
+sudo docker run -d -v <project-dir>/:/app -p <host-port>:<container-port> <tag-name>
 ```
 
 - **Detached mode (-d):** runs container in its own process so it doesn't close when the terminal is closed.
@@ -55,18 +66,38 @@ sudo docker run -d -v ~/<project-dir>/:/app -p <host-port>:<container-port> <tag
 
 ### Troubleshooting
 
-Use the image id returned by the run command to operate with the container.
+These commands can be useful for manage images and containers.
 
-- Open the container and Django server logs.
+- Stop and remove container processes:
 
   ```bash
-  sudo docker logs --follow <image-id>
+  sudo docker stop <container-id>
   ```
 
-- Access the container shell.
+  ```bash
+  sudo docker rm <container-id>
+  ```
+
+- List all images and remove images:
 
   ```bash
-  sudo docker exec -it <image-id> sh
+  sudo docker images
+  sudo docker image rm <image-id>
+  ```
+
+
+Use the container id returned by the run command to operate with the container.
+
+- Open the container and Django server logs:
+
+  ```bash
+  sudo docker logs --follow <container-id>
+  ```
+
+- Access the container shell:
+
+  ```bash
+  sudo docker exec -it <container-id> sh
   ```
 
 - Make Django migrations in the container shell if they are required:
@@ -76,17 +107,36 @@ Use the image id returned by the run command to operate with the container.
   python3 manage.py makemigrations <app-name>
   ```
 
+<br/>
+<br/>
 
 ## Angular Frontend
 
-1. Open the Angular project:
+1. Make sure Backend it's running.
+   
+2. Open the Angular project in another terminal:
 
    ```bash
    cd angular/
    ```
 
-2. Run the server:
+3. Install packages:
+
+   ```bash
+   npm i
+   ```
+
+4. Run the server:
 
    ```bash
    ng serve -o
    ```
+
+5. If your browser ensures https usage you may use incognito mode with http only.
+
+   [http://localhost:4200/](http://localhost:4200/)
+
+<br/>
+<div align="center">
+<img style="width:70%" src="./doc/angular.png" >
+</div>
