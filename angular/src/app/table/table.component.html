@@ -5,7 +5,7 @@
         }
         <th>Action</th>
     </tr>
-    @for (item of data.values(); track item) {
+    @for (item of data; track data) {
     <tr>
         <td>
             {{item.id}}
@@ -23,7 +23,7 @@
             {{item.mobile}}
         </td>
         <td class="action-buttons">
-            <button type="button" class="update-button" (click)="onUpdate(item.id)">Update</button>
+            <button type="button" class="update-button" (click)="setupUpdate(item.id)">Update</button>
             <button type="button" class="delete-button" (click)="onDelete(item.id)">Delete</button>
         </td>
     </tr>

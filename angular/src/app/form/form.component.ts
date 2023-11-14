@@ -1,25 +1,38 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { TableComponent } from '../table/table.component';
+import { User } from '../types/user';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, TableComponent],
+  imports: [CommonModule, FormsModule],
   templateUrl: './form.component.html',
-  styleUrl: './form.component.css'
+  styleUrl: './form.component.css',
 })
 export class FormComponent {
-  private api = 'http://localhost:8000/';
+  @Input() user_id = -1
+  @Input() user: User = {
+    id: -1,
+    user: '',
+    name: '',
+    email: '',
+    mobile: ''
+  }
+  @Output() creator = new EventEmitter<User>()
+  @Output() updater = new EventEmitter<User>()
+  @Output() reseter = new EventEmitter<number>()
   title = 'angular';
-  user = ''
-
-  constructor(private http: HttpClient) { }
 
   onCreate(form: NgForm) {
-    this.http.post(`${this.api}create/`, form.value).subscribe((res) => console.log(res))
-    // this.
+    this.creator.emit(form.value)
+  }
+
+  onUpdate() {
+    this.updater.emit(this.user)
+  }
+
+  resetUpdate() {
+    this.reseter.emit(-1)
   }
 }

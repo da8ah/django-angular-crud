@@ -1,7 +1,26 @@
-<div class="user-header" [ngStyle]="{'display': user !=='' ? user : 'none'}">
-    <h1>{{user}}</h1>
-    <button type="button">X</button>
+@if (user_id !== -1) {
+<div class="user-header">
+    <h1>{{user.user}}</h1>
+    <button type="button" (click)="resetUpdate()">X</button>
 </div>
+<form #userForm="ngForm" method="post">
+    <div class="form-field">
+        <label for='form-user'>user</label><input type="text" id='form-user' name='user' [(ngModel)]="user['user']"><br>
+    </div>
+    <div class="form-field">
+        <label for='form-name'>name</label><input type="text" id='form-name' name='name' [(ngModel)]="user['name']"><br>
+    </div>
+    <div class="form-field">
+        <label for='form-email'>email</label><input type="text" id='form-email' name='email'
+            [(ngModel)]="user['email']"><br>
+    </div>
+    <div class="form-field">
+        <label for='form-mobile'>mobile</label><input type="text" id='form-mobile' name='mobile'
+            [(ngModel)]="user['mobile']"><br>
+    </div>
+    <button class="form-button-update" type="submit" (click)="onUpdate()">Guardar</button>
+</form>
+} @else {
 <form #userForm="ngForm" method="post">
     @for (item of [
     { title: 'user', id: 'form-user'},
@@ -15,3 +34,4 @@
     }
     <button class="form-button" type="submit" (click)="onCreate(userForm)">Registrar</button>
 </form>
+}

@@ -35,11 +35,13 @@
   </svg>
   <section class="content">
     <div class="left-side">
-      <app-form></app-form>
+      <app-form [user]="user" [user_id]="user_id" (creator)="onCreate($event)" (updater)="onUpdate($event)"
+        (reseter)="setupUpdate($event)"></app-form>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
-      <app-table></app-table>
+      <app-table [data]="data" (reader)="onRead()" (updater)="setupUpdate($event)"
+        (deleter)="onDelete($event)"></app-table>
     </div>
   </section>
 </main>

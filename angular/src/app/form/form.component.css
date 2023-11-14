@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-transform: capitalize;
 }
 
 .form-field {
@@ -32,9 +33,9 @@
     box-shadow: 0 0 5px 1px var(--orange-red);
 }
 
-.form-button {
+.form-button,
+.form-button-update {
     width: 100%;
-    background-color: var(--hot-red);
     color: white;
     margin: 30px 0;
     padding: 2% 0;
@@ -45,8 +46,16 @@
     font-size: medium;
 }
 
-.form-button:hover {
-    background-color: var(--hot-red);
+.form-button:hover,
+.form-button-update:hover {
     opacity: .9;
     cursor: pointer;
+}
+
+.form-button {
+    background-color: var(--hot-red);
+}
+
+.form-button-update {
+    background-color: lightseagreen;
 }

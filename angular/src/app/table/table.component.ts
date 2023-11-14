@@ -1,34 +1,31 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from '../types/user';
 
 @Component({
   selector: 'app-table',
   standalone: true,
   imports: [CommonModule, HttpClientModule],
   templateUrl: './table.component.html',
-  styleUrl: './table.component.css'
+  styleUrl: './table.component.css',
 })
-export class TableComponent implements OnInit {
-  private api = 'http://localhost:8000/';
-
-  data: { id: number, user: string, name: string, email: string, mobile: string }[] = []
+export class TableComponent {
+  @Input() data: User[] = []
+  @Output() reader = new EventEmitter()
+  @Output() deleter = new EventEmitter<number>()
+  @Output() updater = new EventEmitter<number>()
   keys = ['id', 'user', 'name', 'email', 'mobile']
-  constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
-    this.onRead()
-  }
 
   onRead() {
-    this.http.get(`${this.api}read/`).subscribe((res) => this.data = res as [])
+    this.reader.emit()
   }
 
-  onUpdate(id: number) {
-    console.log(id)
+  setupUpdate(id: number) {
+    this.updater.emit(id)
   }
 
   onDelete(id: number) {
-    this.http.delete(`${this.api}delete/${id}`).subscribe((res) => { console.log(res); this.onRead() })
+    this.deleter.emit(id)
   }
 }
